@@ -2,7 +2,7 @@
 
 Manual steps to get an [OpenAV](https://github.com/dartmouth-openav) system up and running without the full CI/CD pipeline
 
-You'll have a fully functional system up and running with a local Docker Registry that can be used for running unofficial or in-development device microservices.  This is useful for running full test rooms, development outside of Dartmouth and as a transitional step between OpenAV's quickstart script and implementing the full CI/CD pipeline.
+You'll have a fully functional system up and running with a local Docker Registry that can be used for running unofficial or in-development device microservices.  This is useful for running full test rooms, development outside of Dartmouth, and as a transitional step between OpenAV's quickstart script and implementing the full CI/CD pipeline.
 
 For simple testing or basic proof of concept, use [quickstart.sh](https://raw.githubusercontent.com/Dartmouth-OpenAV/.github/refs/heads/main/quickstart.sh) instead
 
