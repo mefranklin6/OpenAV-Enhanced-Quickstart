@@ -1,0 +1,221 @@
+{
+    "system_name": "Glenn 104",
+    "control_sets": {
+        "flat_panel": {
+            "name": "Inputs",
+            "controls": {
+                "input_select": {
+                    "type": "display_source_radio",
+                    "channel": "main",
+                    "default_input": "PC",
+                    "options": {
+                        "input_1": {
+                            "icon": "monitor",
+                            "name": "PC",
+                            "value": {
+                                "set": [
+                                    {
+                                        "driver": "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/audioandvideoroute/1",
+                                        "method": "PUT",
+                                        "headers": [
+                                            "content-type: application/json"
+                                        ],
+                                        "body": "3"
+                                    }
+                                ],
+                                "get": [
+                                    "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/audioandvideoroute/1"
+                                ],
+                                "get_process": [
+                                    "3"
+                                ],
+                                "set_process": ""
+                            }
+                        },
+                        "input_2": {
+                            "icon": "hdmi",
+                            "name": "Laptop HDMI",
+                            "value": {
+                                "set": [
+                                    {
+                                        "driver": "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/audioandvideoroute/1",
+                                        "method": "PUT",
+                                        "headers": [
+                                            "content-type: application/json"
+                                        ],
+                                        "body": "4"
+                                    }
+                                ],
+                                "get": [
+                                    "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/audioandvideoroute/1"
+                                ],
+                                "get_process": [
+                                    "4"
+                                ],
+                                "set_process": ""
+                            }
+                        }
+                    }
+                },
+                "pause": {
+                    "type": "video_mute",
+                    "channel": "mute",
+                    "value": {
+                        "set": [
+                            {
+                                "driver": "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/videomute/1C",
+                                "method": "PUT",
+                                "body": "\"$on_or_off\"",
+                                "headers": [
+                                    "content-type: application/json"
+                                ]
+                            }
+                        ],
+                        "set_process": {
+                            "true": {
+                                "on_or_off": "true"
+                            },
+                            "false": {
+                                "on_or_off": "false"
+                            }
+                        },
+                        "get": [
+                            "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/videomute/1C"
+                        ],
+                        "get_process": [
+                            "true"
+                        ]
+                    }
+                },
+                "power": {
+                    "type": "power",
+                    "name": "Power",
+                    "warmup_timer": 20,
+                    "channel": "main",
+                    "value": {
+                        "set": [
+                            {
+                                "driver": "dartmouth-openav/microservice-pjlink:current/:yourpassword@192.168.254.3/power",
+                                "method": "PUT",
+                                "body": "\"$on_or_off\"",
+                                "headers": [
+                                    "content-type: application/json"
+                                ]
+                            },
+                            {
+                                "driver": "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/videomute/1C",
+                                "method": "PUT",
+                                "body": "false",
+                                "headers": [
+                                    "content-type: application/json"
+                                ]
+                            },
+                            {
+                                "driver": "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/audiomute/programmute",
+                                "method": "PUT",
+                                "body": "false",
+                                "headers": [
+                                    "content-type: application/json"
+                                ]
+                            }
+                        ],
+                        "set_process": {
+                            "true": {
+                                "on_or_off": "on"
+                            },
+                            "false": {
+                                "on_or_off": "off"
+                            }
+                        },
+                        "get": [
+                            "dartmouth-openav/microservice-pjlink:current/:yourpassword@192.168.254.3/power"
+                        ],
+                        "get_process": [
+                            "on"
+                        ]
+                    }
+                }
+            }
+        },
+        "audio": {
+            "name": "Sound",
+            "icon": "speaker",
+            "display_options": {
+                "half_width": true
+            },
+            "controls": {
+                "mute": {
+                    "type": "mute",
+                    "channel": "main",
+                    "value": {
+                        "set": [
+                            {
+                                "driver": "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/audiomute/programmute",
+                                "method": "PUT",
+                                "body": "\"$on_or_off\"",
+                                "headers": [
+                                    "content-type: application/json"
+                                ]
+                            }
+                        ],
+                        "set_process": {
+                            "true": {
+                                "on_or_off": "true"
+                            },
+                            "false": {
+                                "on_or_off": "false"
+                            }
+                        },
+                        "get": [
+                            "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/audiomute/programmute"
+                        ],
+                        "get_process": [
+                            "true"
+                        ]
+                    }
+                },
+                "volume": {
+                    "type": "volume",
+                    "channel": "main",
+                    "value": {
+                        "set": [
+                            {
+                                "driver": "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/volume/programvolume",
+                                "method": "PUT",
+                                "body": "$volume",
+                                "headers": [
+                                    "content-type: application/json"
+                                ]
+                            },
+                            {
+                                "driver": "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/audiomute/programmute",
+                                "method": "PUT",
+                                "body": "false",
+                                "headers": [
+                                    "content-type: application/json"
+                                ]
+                            }
+                        ],
+                        "set_process": {
+                            "function_name": "set_process_volume",
+                            "function_arguments": {
+                                "min_volume": 50,
+                                "max_volume": 70
+                            }
+                        },
+                        "get": [
+                            "mefranklin6/microservice-extron-sis:current/telnet|admin:yourpassword@192.168.254.254/volume/programvolume"
+                        ],
+                        "get_process": {
+                            "function_name": "get_process_volume",
+                            "function_arguments": {
+                                "min_volume": 50,
+                                "max_volume": 70
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
