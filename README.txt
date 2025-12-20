@@ -1,0 +1,1 @@
+Add these scripts to your microservices if they are not already there.
