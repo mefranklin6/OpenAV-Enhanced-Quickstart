@@ -118,8 +118,10 @@ docker push <registry_host>:5000/microservice-extron-sis:latest
 ## Start the System
 
 ```bash
-# On server
-docker login <registry_host>:5000
+# On server 
+
+# localhost address is added to 'unsecure-registry' list by default
+docker login 127.0.0.1:5000
 # enter your credentials here
 
 cd /opt/OpenAV
