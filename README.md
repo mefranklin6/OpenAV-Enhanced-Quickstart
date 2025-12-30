@@ -11,6 +11,7 @@ For simple testing or basic proof of concept, use [quickstart.sh](https://raw.gi
 - A linux server with internet connection and connection to the devices you want to control
 - A workstation (OS agnostic) with internet connection and connection to the server
 - If your workstation is Windows, [WinSCP](https://winscp.net/eng/index.php) will make things easier but is not required
+- If your workstation is Windows, it is recommended to [install the latest PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.5) (not 'Windows PowerShell' that comes with the OS, just 'PowerShell')
 - At least one OpenAV room configuration JSON file
 
 ## Install Docker Engine
